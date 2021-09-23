@@ -1,0 +1,24 @@
+CREATE TABLE countries (
+	id int AUTO_INCREMENT,
+    slug varchar(255) NOT NULL,
+    name varchar(255) NOT NULL,
+    status boolean,
+    
+    CONSTRAINT id PRIMARY KEY (id)
+)
+
+CREATE TABLE cases (
+
+    id int AUTO_INCREMENT,
+    country_id int NOT NULL,
+    active bigint NOT NULL,
+    deaths bigint NOT NULL,
+    recovered bigint NOT NULL,
+    confirmed bigint NOT NULL,
+    date DATETIME NOT NULL,
+    
+    CONSTRAINT id PRIMARY KEY (id),
+    
+    CONSTRAINT country_id FOREIGN KEY (country_id) REFERENCES countries(id)
+    
+)
